@@ -56,10 +56,9 @@ func loadData(filePath string) error {
 func findValue(arr []int, target int) int {
 	n := len(arr)
 
-	// Define the tolerance range
 	tolerance := float64(target) * 0.1
 
-	// Corner cases
+	// edge cases
 	if target <= arr[0] {
 		if math.Abs(float64(arr[0]-target)) <= tolerance {
 			return 0
@@ -73,29 +72,28 @@ func findValue(arr []int, target int) int {
 		return -1
 	}
 
-	// Binary search
+	// use binary search for search as data could be huge
 	i, j := 0, n
 	var mid int
 	for i < j {
 		mid = (i + j) / 2
 
 		if arr[mid] == target {
-			return mid // Return index if target matches
+			return mid
 		}
 
 		// If target is less than the middle element, search in the left half
 		if target < arr[mid] {
-			// Check if target is between arr[mid-1] and arr[mid]
 			if mid > 0 && target > arr[mid-1] {
 				return getClosestIndexByTolerance(mid-1, mid, arr, target, tolerance)
 			}
-			j = mid // Update the right boundary
+			j = mid
 		} else {
 			// If target is greater than the middle element, search in the right half
 			if mid < n-1 && target < arr[mid+1] {
 				return getClosestIndexByTolerance(mid, mid+1, arr, target, tolerance)
 			}
-			i = mid + 1 // Update the left boundary
+			i = mid + 1
 		}
 	}
 
