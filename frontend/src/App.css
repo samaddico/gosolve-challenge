@@ -1,0 +1,38 @@
+.App {
+  padding: 20px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.Search-success {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.Search-error {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.Search-button {
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.Search-input {
+  padding: 10px;
+  width: 94%;
+  margin-bottom: 10px;
+}
+
+.Search-header {
+  text-align: center;
+}
